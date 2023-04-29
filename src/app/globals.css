@@ -27,7 +27,7 @@ body{
 
 
 .sidebar-li {
-    @apply cursor-pointer text-sm h-full w-full text-white-600 flex justify-center items-center gap-1 hover:text-blue-500;
+    @apply cursor-pointer text-base text-black-500 hover:bg-darkBlue-300 hover:text-white-500 rounded-r-full  h-full w-full  flex justify-stretch items-center gap-1 ;
  }
 
 

@@ -18,22 +18,22 @@ function Sidebar() {
   }
 
   const pathname = usePathname();
-  console.log(pathname);
+
 
   return (
     <div
-      className={` px-1 min-h-screen flex justify-center items-center transition-[width] duration-300 bg-white-500 ${
-        isOpen ? "w-[200px] p-4" : "w-[120px]"
+      className={` border-r-2 border-gray-600 min-h-screen flex justify-start items-center transition-[width] duration-300 bg-inherit ${
+        isOpen ? "w-[200px] py-4" : "w-[120px]"
       }`}
     >
-      <div className="flex flex-col  items-center gap-4 fixed top-[10px]  bottom-[10px] ">
-      <div className=" flex justify-start gap-4">
+      <div className="flex flex-col  items-center gap-4 fixed top-[10px]  bottom-[10px]  ">
+      <div className=" flex justify-start gap-4 relative w-full pl-4">
         {isOpen ? (
-          <p className="text-black-400 -ml-[5px] text-xs">Administration</p>
+          <p className="text-black-500 -ml-[5px] text-xs">Administration</p>
         ) : null}
         <button
           onClick={clickHandler}
-          className="absolute text-black-400 top-[1px] -right-[1px] md:-right-[6px]"
+          className="absolute text-black-400 top-[1px] -right-[1px] md:-right-[26px]"
         >
           {isOpen ? (
             <TbLayoutSidebarLeftCollapse />
@@ -50,18 +50,18 @@ function Sidebar() {
           width={75}
           height={75}
         />
-        {isOpen && <p className="text-black-400">Jack Philips</p>}
+        {isOpen && <p className="text-black-500">Jack Philips</p>}
         {isOpen && <p className="text-darkBlue-300">Manager</p>}
       </div>
       <ul
-        className={`h-3/6 flex flex-col justify-between items-center text-sm ${
+        className={`h-3/6 font-medium flex flex-col justify-between items-center text-base ${
           isOpen ? "" : "items-center"
         }`}
       >
-        <li className={` sidebar-li ${isOpen ? "!justify-center" : ""} `}>
+        <li className={` sidebar-li  ${isOpen ? "!justify-stretch " : "!justify-center"} `}>
           <Link
-            className={` sidebar-li ${isOpen ? "!justify-start pl-4" : ""} ${
-              pathname === "/" ? "!text-blue-700" : ""
+            className={` sidebar-li !text-sm ${isOpen ? "!justify-stretch p-3" : "!justify-center"} ${
+              pathname === "/" ? "!text-white-500 bg-darkBlue-400" : ""
             }`}
             href="/"
           >
@@ -77,11 +77,11 @@ function Sidebar() {
           <span>Management</span>
         </p>
         <li
-          className={` sidebar-li relative ${isOpen ? "!justify-start" : ""} `}
+          className={` sidebar-li relative ${isOpen ? "!justify-start" : "!justify-center"} `}
         >
           <Link
-            className={` sidebar-li ${isOpen ? "!justify-start pl-4" : ""} ${
-              pathname === "/Clients" ? "!text-blue-700" : ""
+            className={` sidebar-li ${isOpen ? "!justify-start pl-2 " : "!justify-center"} ${
+              pathname === "/Clients" ? "!text-white-500 bg-darkBlue-400" : ""
             }`}
             href="/Clients"
           >
@@ -89,10 +89,10 @@ function Sidebar() {
             <span className={`${isOpen ? "block" : "hidden"}`}>Clients</span>
           </Link>
         </li>
-        <li className={` sidebar-li ${isOpen ? "!justify-start" : ""} `}>
+        <li className={` sidebar-li ${isOpen ? "!justify-start" : "!justify-center"} `}>
           <Link
-            className={` sidebar-li ${isOpen ? "!justify-start pl-4" : ""} ${
-              pathname === "/Team" ? "!text-blue-700" : ""
+            className={` sidebar-li ${isOpen ? "!justify-start pl-2" : "!justify-center"} ${
+              pathname === "/Team" ? "!text-white-500 bg-darkBlue-400" : ""
             }`}
             href="/Team"
           >
@@ -107,10 +107,10 @@ function Sidebar() {
         >
           <span>Tools</span>
         </p>
-        <li className={` sidebar-li ${isOpen ? "!justify-start" : ""}`}>
+        <li className={` sidebar-li ${isOpen ? "!justify-start" : "!justify-center"}`}>
           <Link
-            className={` sidebar-li ${isOpen ? "!justify-start pl-4" : ""}  ${
-              pathname === "/Calendar" ? "!text-blue-700" : ""
+            className={` sidebar-li ${isOpen ? "!justify-start pl-2" : "!justify-center"}  ${
+              pathname === "/Calendar" ? "!text-white-500 bg-darkBlue-400" : ""
             }`}
             href="/Calendar"
           >
@@ -118,10 +118,10 @@ function Sidebar() {
             <span className={`${isOpen ? "block" : "hidden"}`}>Calendar</span>
           </Link>
         </li>
-        <li className={` sidebar-li ${isOpen ? "!justify-start" : ""} `}>
+        <li className={` sidebar-li ${isOpen ? "!justify-start" : "!justify-center"} `}>
           <Link
-            className={` sidebar-li ${isOpen ? "!justify-start pl-4" : ""} ${
-              pathname === "/Help" ? "!text-blue-700" : ""
+            className={` sidebar-li ${isOpen ? "!justify-start pl-2" : "!justify-center"} ${
+              pathname === "/Help" ? "!text-white-500 !bg-darkBlue-400" : ""
             }`}
             href="/Help"
           >
@@ -129,10 +129,10 @@ function Sidebar() {
             <span className={`${isOpen ? "block" : "hidden"}`}>Help</span>
           </Link>
         </li>
-        <li className={` sidebar-li ${isOpen ? "!justify-start" : ""} `}>
+        <li className={` sidebar-li ${isOpen ? "!justify-start" : "!justify-center"} `}>
           <Link
-            className={` sidebar-li ${isOpen ? "!justify-start pl-4" : ""} ${
-              pathname === "/FAQ" ? "!text-blue-700" : ""
+            className={` sidebar-li ${isOpen ? "!justify-start pl-2" : "!justify-center"} ${
+              pathname === "/FAQ" ? "!text-white-500 bg-darkBlue-400" : ""
             }`}
             href="/FAQ"
           >

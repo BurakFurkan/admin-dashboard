@@ -1,12 +1,14 @@
-"use client"
 import "./globals.css";
-import { Inter,Ubuntu,Montserrat } from "next/font/google";
-import { ProSidebarProvider } from "react-pro-sidebar";
+import { Inter, Montserrat } from "next/font/google";
 import Sidebar from "./components/Sidebar";
 import Searchbar from "./components/Searchbar";
+import { Providers } from "./Redux/provider";
 
 const inter = Inter({ subsets: ["latin"] });
-const montserrat = Montserrat({ subsets: ["latin"],weight:["300","400","700"] });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+});
 
 export const metadata = {
   title: "Bank Admin Dashboard",
@@ -21,12 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} bg-gray-500 h-full flex gap-1`}>
-        <ProSidebarProvider>
-          <Sidebar />
-        </ProSidebarProvider>
+        <Sidebar />
         <div className="flex flex-col w-full h-full">
-        <Searchbar /> 
-        {children}
+          <Providers>
+            <Searchbar />
+            {children}
+          </Providers>
         </div>
       </body>
     </html>
