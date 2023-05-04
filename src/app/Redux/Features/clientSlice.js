@@ -17,6 +17,7 @@ const initialState = {
   isLoading: false,
   AllClients: [],
   search: "",
+  selectedClient:null
 };
 
 export const clientsSlice = createSlice({
@@ -26,6 +27,9 @@ export const clientsSlice = createSlice({
     search: (state,action) => {
       state.search=action.payload;
     },
+    detailHandler:(state,action)=>{
+      state.selectedClient=state.AllClients.find(element=>element.id===action.payload)
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllClients.fulfilled, (state, action) => {
@@ -42,5 +46,5 @@ export const clientsSlice = createSlice({
   },
 });
 
-export const { addClient } = clientsSlice.actions;
+export const { addClient,detailHandler } = clientsSlice.actions;
 export default clientsSlice.reducer;

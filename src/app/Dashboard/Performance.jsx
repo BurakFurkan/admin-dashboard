@@ -6,7 +6,7 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 
-function StatBox({ chartColor,chartColor2,chartColorSoft,chartColor2Soft,color1, title, color2, content, hoverColor,goal, children }) {
+function Performance({ chartColor,chartColor2,chartColorSoft,chartColor2Soft,color1, title, color2, content, hoverColor,goal, children }) {
   
   return (
     <div
@@ -17,7 +17,7 @@ function StatBox({ chartColor,chartColor2,chartColorSoft,chartColor2Soft,color1,
       >
         {children}
         <h2 className={`${color1} `}>{title}</h2>
-        <h3 className={`[${color2}] text-base font-medium`}>{content}</h3>
+        <h3 className={`[${color2}] text-base font-medium`}>87%</h3>
       </div>
       <div className="h-4/5 w-4/5  flex justify-center items-center">
           <Doughnut  data={generateData(chartColor,chartColor2,chartColorSoft,chartColor2Soft,title,goal,content)} />
@@ -26,5 +26,5 @@ function StatBox({ chartColor,chartColor2,chartColorSoft,chartColor2Soft,color1,
   );
 }
 
-export default StatBox;
+export default Performance;
 

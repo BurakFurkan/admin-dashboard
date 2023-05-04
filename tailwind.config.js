@@ -56,7 +56,7 @@ module.exports = {
         200: "#f0f1f1",
         300: "#e8e9ea",
         400: "#e1e2e3",
-        500: "#d9dbdc",
+        500: "#f0f3f1",
         600: "#aeafb0",
         700: "#828384",
         800: "#575858",
@@ -84,6 +84,9 @@ module.exports = {
         800: "#0e1c32",
         900: "#070e19",
       },
+      green:{
+        500:"#10564F"
+      }
     },
     extend: {
       backgroundImage: {
@@ -93,8 +96,20 @@ module.exports = {
       },
       gridTemplateRows: {
         // Complex site-specific row configuration
-        'layout': 'repeat(6, minmax(0, 200px))',
-      }
+        layout: "repeat(6, minmax(0, 200px))",
+      },
+      boxShadow: {
+        icon: "1px 1px 25px -9px rgba(87,88,88,1)",
+      },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+      },
+      aimation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
