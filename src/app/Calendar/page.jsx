@@ -1,9 +1,13 @@
-import React from 'react'
+"use client";
+import React from 'react';
+import Calendar from "./Calendar";
 
-function Calendar() {
+function CalendarPage() {
   return (
-    <div>Calendar</div>
+    <div>
+      <Calendar />
+    </div>
   )
 }
 
-export default Calendar
+export default CalendarPage

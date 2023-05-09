@@ -2,20 +2,20 @@
 import { DataGrid, gridClasses } from "@mui/x-data-grid";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
-import { fetchAllClients, detailHandler } from "../Redux/Features/clientSlice";
+import { fetchAllTeamMembers, memberDetailHandler} from "../Redux/Features/teamSlice";
 import { BsSearch } from "react-icons/bs";
 import Avatar from "@mui/material/Avatar";
 
-export default function ClientsTable() {
+export default function TeamTable() {
   const dispatch = useAppDispatch();
-  const { AllClients, isLoading } = useAppSelector((state) => state.clients);
+  const { AllTeamMembers, isLoading } = useAppSelector((state) => state.team);
 
   useEffect(() => {
-    if (!AllClients.length > 0) dispatch(fetchAllClients());
+    if (!AllTeamMembers.length > 0) dispatch(fetchAllTeamMembers());
   }, []);
 
   const handleCellClick = (params) => {
-    params.field === "details" ? dispatch(detailHandler(params.id)) : null;
+    params.field === "details" ? dispatch(memberDetailHandler(params.id)) : null;
   };
 
   function SendBtn() {
@@ -84,13 +84,13 @@ export default function ClientsTable() {
 
   function generateRow() {
     const fetchedRow = [];
-    AllClients.map((client) => {
+    AllTeamMembers.map((member) => {
       const myRow = {
-        id: client.id,
-        avatar: client.image,
-        lastName: client.lastName,
-        firstName: client.firstName,
-        age: client.age,
+        id: member.id,
+        avatar: member.image,
+        lastName: member.lastName,
+        firstName: member.firstName,
+        age: member.age,
       };
 
       fetchedRow.push(myRow);
@@ -126,6 +126,7 @@ export default function ClientsTable() {
         pageSizeOptions={[15, 20, 30]}
         rowSelection={false}
         onCellClick={handleCellClick}
+        draggable
       />
     </div>
   );

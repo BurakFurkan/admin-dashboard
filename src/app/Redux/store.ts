@@ -1,10 +1,12 @@
 "use client"
 import { configureStore } from "@reduxjs/toolkit";
 import clientsReducer from "./Features/clientSlice";
+import TeamMemberReducer from "./Features/teamSlice";
 
 export const store = configureStore({
   reducer: {
-    clients:clientsReducer
+    clients:clientsReducer,
+    team:TeamMemberReducer
   },
   devTools: process.env.NODE_ENV !== "production",
 });

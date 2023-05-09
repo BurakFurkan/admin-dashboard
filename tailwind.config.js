@@ -84,9 +84,9 @@ module.exports = {
         800: "#0e1c32",
         900: "#070e19",
       },
-      green:{
-        500:"#10564F"
-      }
+      green: {
+        500: "#10564F",
+      },
     },
     extend: {
       backgroundImage: {
@@ -106,9 +106,31 @@ module.exports = {
           "0%, 100%": { transform: "rotate(-3deg)" },
           "50%": { transform: "rotate(3deg)" },
         },
+        enter: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(.9)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+        leave: {
+          "0%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "scale(.9)",
+          },
+        },
       },
       aimation: {
-        wiggle: 'wiggle 1s ease-in-out infinite',
+        wiggle: "wiggle 1s ease-in-out infinite",
+        enter: "enter .2s ease-out",
+        leave: "leave .15s ease-in forwards",
       },
     },
   },

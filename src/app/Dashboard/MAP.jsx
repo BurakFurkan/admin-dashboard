@@ -20,10 +20,10 @@ export const options = {
     defaultColor: "#f5f5f5",
   };
 
-export function MAP(hoverColor) {
+export function MAP() {
   return (
     <div
-      className={` py-4 px-6 md:col-span-3 col-span-12 shadow-lg rounded-sm bg-white-300 border-2 scale-95 transition-all duration-300 ${hoverColor} hover:scale-100`}
+      className={` py-4 px-6 md:col-span-3 col-span-12 shadow-lg rounded-sm bg-white-300 border-2 scale-95 transition-all duration-300 hover:border-[#10564F] hover:scale-100`}
     >
       <Chart
         chartEvents={[

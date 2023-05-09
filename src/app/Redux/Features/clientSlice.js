@@ -38,7 +38,7 @@ export const clientsSlice = createSlice({
     }),
       builder.addCase(fetchAllClients.rejected, (state, action) => {
         state.isLoading = false;
-        state.AllClients = action.payload;
+        state.AllClients = [];
       }),
       builder.addCase(fetchAllClients.pending, (state, action) => {
         state.isLoading = true;

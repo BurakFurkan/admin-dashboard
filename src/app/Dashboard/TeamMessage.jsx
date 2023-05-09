@@ -24,7 +24,7 @@ export default function CustomToolbarGrid() {
     { field: 'avatar', headerName: 'Avatar', width: 50,align:"center",flex:1,editable:false, renderCell: (params)=>{
       return (
         <div>
-          <Avatar src={params.row.avatar} alt='User Avatar' />
+          <Avatar src={params.row.avatar} alt='User Avatar' className="border-[1px] border-gray-600 p-[1px]"/>
         </div>
       )
     } },
