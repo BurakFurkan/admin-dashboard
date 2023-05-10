@@ -1,51 +1,80 @@
 "use client";
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 
-function Notify(setModalText){
+
+export default function Modal({selected,open,setOpen,eventType}) {
+  const [textValue,setTextValue]=useState("");
+
   
-  var textValue="";
-  
-  const handleChange = (event) => {
-    textValue=event.target.value;
-  };
+  function handleAdd() {
+    const title=textValue;
+    const calendarApi = selected.view.calendar;
+    calendarApi.unselect();
 
-  const clickHandler = () => {
-    setModalText(textValue);
-    toast.dismiss();
-  };
-
-  toast.custom(
-    (t) => (
-      <div
-        className={`bg-white-300 p-2 z-30  border-2 h-max w-max border-gray-400 shadow-md gap-2 rounded-sm relative flex flex-col justify-center items-center ${
-          t.visible ? `animate-enter` : `animate-leave`
-        }`}
-      >
-        <label className="p-1 " htmlFor="todo">
-          <input
-            className=" border-2 p-1 w-full h-full rounded-md border-blue-400 outline-none duration-300 bg-white-400 block mx-auto  placeholder:italic placeholder:text-sm"
-            autoComplete="off"
-            type="text-area"
-            name="search"
-            id="search"
-            placeholder="Add Event"
-            onChange={handleChange}
-          />
-        </label>
-        <button
-          className="p-2 rounded-md border-[1px] border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white-300 focus:bg-blue-600 focus:text-white-300"
-          onClick={clickHandler}
-        >
-          Add Event
-        </button>
-      </div>
-    ),
-    {
-      position: "top-center",
-      duration: Infinity,
+    if (title) {
+      calendarApi.addEvent({
+        id: `${selected.startStr}-${title}`,
+        title,
+        start: selected.start,
+        end: selected.end,
+        allDay: selected.allDay,
+        backgroundColor:"#10564f",
+        borderColor:"#10564f"
+      });
     }
-  );
-};
 
-export default Notify;
+    setOpen(false);
+  }
+
+  const handleRemove = () => {
+    selected.event.remove();
+    setOpen(false);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      <Dialog open={open} onClose={handleClose}>
+       {(eventType==="addEvent")?(
+        <>
+         <DialogTitle sx={{color:"#10564f"}}>Calendar Event</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Event Title"
+            type="text"
+            fullWidth
+            variant="standard"
+            autoComplete="off"
+            onChange={e =>setTextValue(e.target.value)}
+            sx={{color:"#10564f",borderBlockColor:"#10564f",outlineColor:"#10564f",input:{color:"#10564f"},label:{color:"#10564f"},placeHolder:{color:"#10564f"}}}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button sx={{color:"#10564f"}} onClick={handleClose}>Cancel</Button>
+          <Button sx={{color:"#10564f"}} onClick={handleAdd}>Add</Button>
+        </DialogActions>
+        </>
+       ):(
+        <>
+         <DialogTitle>Do you want to remove the event <span className="font-semibold text-blue-400">{selected.event.title}</span> </DialogTitle>
+        <DialogActions>
+          <Button sx={{color:"#10564f"}} onClick={handleClose}>Cancel</Button>
+          <Button sx={{color:"#10564f"}} onClick={handleRemove}>Delete</Button>
+        </DialogActions>
+        </>
+       )}
+      </Dialog>
+    </div>
+  );
+}

@@ -51,7 +51,7 @@ function Sidebar() {
             height={75}
           />
           {isOpen && <p className="text-black-500">Jack Philips</p>}
-          {isOpen && <p className="text-darkBlue-300">Manager</p>}
+          {isOpen && <p className="text-green-500">Manager</p>}
         </div>
         <ul
           className={`h-3/6 font-medium flex flex-col justify-between items-center text-base ${
@@ -66,7 +66,7 @@ function Sidebar() {
             <Link
               className={` sidebar-li !text-sm ${
                 isOpen ? "!justify-stretch p-3" : "!justify-center"
-              } ${pathname === "/" ? "!text-white-500 !bg-darkBlue-400" : ""}`}
+              } ${pathname === "/" ? "!text-white-500 !bg-green-400" : ""}`}
               href="/"
             >
               <AiOutlineHome />
@@ -92,7 +92,7 @@ function Sidebar() {
                 isOpen ? "!justify-start pl-2 " : "!justify-center"
               } ${
                 pathname === "/Clients"
-                  ? "!text-white-500 !bg-darkBlue-400"
+                  ? "!text-white-500 !bg-green-400"
                   : ""
               }`}
               href="/Clients"
@@ -110,7 +110,7 @@ function Sidebar() {
               className={` sidebar-li ${
                 isOpen ? "!justify-start pl-2" : "!justify-center"
               } ${
-                pathname === "/Team" ? "!text-white-500 !bg-darkBlue-400" : ""
+                pathname === "/Team" ? "!text-white-500 !bg-green-400" : ""
               }`}
               href="/Team"
             >
@@ -135,7 +135,7 @@ function Sidebar() {
                 isOpen ? "!justify-start pl-2" : "!justify-center"
               }  ${
                 pathname === "/Calendar"
-                  ? "!text-white-500 !bg-darkBlue-400"
+                  ? "!text-white-500 !bg-green-400"
                   : ""
               }`}
               href="/Calendar"
@@ -153,7 +153,7 @@ function Sidebar() {
               className={` sidebar-li ${
                 isOpen ? "!justify-start pl-2" : "!justify-center"
               } ${
-                pathname === "/Help" ? "!text-white-500 !bg-darkBlue-400" : ""
+                pathname === "/Help" ? "!text-white-500 !bg-green-400" : ""
               }`}
               href="/Help"
             >
@@ -170,7 +170,7 @@ function Sidebar() {
               className={` sidebar-li ${
                 isOpen ? "!justify-start pl-2" : "!justify-center"
               } ${
-                pathname === "/FAQ" ? "!text-white-500 !bg-darkBlue-400" : ""
+                pathname === "/FAQ" ? "!text-white-500 !bg-green-400" : ""
               }`}
               href="/FAQ"
             >

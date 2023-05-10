@@ -8,7 +8,7 @@ import PageName from "./components/PageName";
 const inter = Inter({ subsets: ["latin"] });
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400","500","600","700"],
 });
 
 export const metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-gray-500 h-full flex gap-1`}>
+      <body className={`${montserrat.className} bg-gray-500 h-full flex gap-1 text-green-500 `}>
         <Sidebar />
         <div className="flex flex-col w-full h-full">
           <Providers>

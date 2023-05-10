@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    font-family: var(--font-montserrat);
+  }
+
 body{
     margin:0;
     padding:0;
@@ -27,7 +31,7 @@ body{
 
 
 .sidebar-li {
-    @apply cursor-pointer text-base text-black-500 hover:bg-darkBlue-300 hover:text-white-500 rounded-r-full  h-full w-full  flex justify-stretch items-center gap-1 ;
+    @apply cursor-pointer text-base text-green-500 hover:bg-green-300 hover:text-white-500 rounded-r-full  h-full w-full  flex justify-stretch items-center gap-1 ;
  }
 
 
