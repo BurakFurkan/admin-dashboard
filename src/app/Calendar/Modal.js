@@ -67,7 +67,7 @@ export default function Modal({selected,open,setOpen,eventType}) {
         </>
        ):(
         <>
-         <DialogTitle>Do you want to remove the event <span className="font-semibold text-blue-400">{selected.event.title}</span> </DialogTitle>
+         <DialogTitle>Do you want to remove the event <span className="font-semibold text-green-500">{selected.event.title}</span> </DialogTitle>
         <DialogActions>
           <Button sx={{color:"#10564f"}} onClick={handleClose}>Cancel</Button>
           <Button sx={{color:"#10564f"}} onClick={handleRemove}>Delete</Button>

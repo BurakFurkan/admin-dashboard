@@ -34,6 +34,25 @@ body{
     @apply cursor-pointer text-base text-green-500 hover:bg-green-300 hover:text-white-500 rounded-r-full  h-full w-full  flex justify-stretch items-center gap-1 ;
  }
 
+ .fc-toolbar{
+    @apply flex-col md:flex-row justify-center items-start gap-2 w-full
+ }
+
+ .fc-toolbar-chunk{
+    @apply w-full 
+ }
+ .fc-toolbar-chunk:nth-child(3){
+    @apply w-full flex justify-start md:justify-end items-end
+ }
+
+  .fc-button.fc-prev-button, .fc-button.fc-next-button, .fc-button.fc-button-primary,.fc-today-button {
+    @apply bg-green-500 
+  }
+  .fc-button-active{
+    @apply !bg-green-600
+  }
+
+
 
 
 

@@ -9,7 +9,8 @@ import { AiOutlineHome, AiOutlineUsergroupAdd } from "react-icons/ai";
 import { SlPeople } from "react-icons/sl";
 import { TfiCalendar } from "react-icons/tfi";
 import { BiHelpCircle } from "react-icons/bi";
-import { BsBook } from "react-icons/bs";
+import { BsBook, BsClipboardCheck } from "react-icons/bs";
+import { RxRulerHorizontal } from "react-icons/rx";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,19 +22,18 @@ function Sidebar() {
 
   return (
     <div
-      className={` border-r-2 border-gray-600 min-h-screen flex justify-start items-center transition-[width] duration-300 bg-white-300 ${
-        isOpen ? "w-[180px] py-4" : "w-[120px]"
+      className={` border-r-2 border-gray-600 relative h-min flex justify-start items-center transition-[width] duration-300 bg-white-300 ${
+        isOpen ? "w-[180px] " : "w-[120px]"
       }`}
     >
-      <div className="flex flex-col  items-center gap-4 fixed top-0 h-full bottom-0  ">
-        <div className=" flex justify-start gap-4 relative w-full pl-4">
-          {isOpen ? (
+      <div className="flex flex-col  items-center gap-4 fixed top-0 h-full bottom-0  bg-white-300 border-r-2 border-gray-600 transition-[width] duration-300">
+        <div className=" flex justify-start gap-4 relative w-full pl-4 transition-[width] duration-300">
+          {isOpen && (
             <p className="text-black-500 -ml-[5px] text-xs">Administration</p>
-          ) : null}
-
+          )}
           <button
             onClick={clickHandler}
-            className="absolute text-black-400 top-[1px] -right-[1px] md:-right-[26px]"
+            className="absolute text-black-400 top-[1px] right-0"
           >
             {isOpen ? (
               <TbLayoutSidebarLeftCollapse />
@@ -42,7 +42,8 @@ function Sidebar() {
             )}
           </button>
         </div>
-        <div className="flex flex-col justify-center items-center gap-1">
+        <div className="flex flex-col justify-center items-center gap-1 relative">
+          
           <Image
             className="rounded-[50%]"
             src={"/UserImage.jpg"}
@@ -91,9 +92,7 @@ function Sidebar() {
               className={` sidebar-li ${
                 isOpen ? "!justify-start pl-2 " : "!justify-center"
               } ${
-                pathname === "/Clients"
-                  ? "!text-white-500 !bg-green-400"
-                  : ""
+                pathname === "/Clients" ? "!text-white-500 !bg-green-400" : ""
               }`}
               href="/Clients"
             >
@@ -109,13 +108,28 @@ function Sidebar() {
             <Link
               className={` sidebar-li ${
                 isOpen ? "!justify-start pl-2" : "!justify-center"
-              } ${
-                pathname === "/Team" ? "!text-white-500 !bg-green-400" : ""
-              }`}
+              } ${pathname === "/Team" ? "!text-white-500 !bg-green-400" : ""}`}
               href="/Team"
             >
               <AiOutlineUsergroupAdd />
               <span className={`${isOpen ? "block" : "hidden"}`}>My Team</span>
+            </Link>
+          </li>
+          <li
+            className={` sidebar-li relative ${
+              isOpen ? "!justify-start" : "!justify-center"
+            } `}
+          >
+            <Link
+              className={` sidebar-li ${
+                isOpen ? "!justify-start pl-2 " : "!justify-center"
+              } ${
+                pathname === "/Projects" ? "!text-white-500 !bg-green-400" : ""
+              }`}
+              href="/Projects"
+            >
+              <BsClipboardCheck />
+              <span className={`${isOpen ? "block" : "hidden"}`}>Projects</span>
             </Link>
           </li>
           <p
@@ -134,9 +148,24 @@ function Sidebar() {
               className={` sidebar-li ${
                 isOpen ? "!justify-start pl-2" : "!justify-center"
               }  ${
-                pathname === "/Calendar"
-                  ? "!text-white-500 !bg-green-400"
-                  : ""
+                pathname === "/Timeline" ? "!text-white-500 !bg-green-400" : ""
+              }`}
+              href="/Timeline"
+            >
+              <RxRulerHorizontal />
+              <span className={`${isOpen ? "block" : "hidden"}`}>Timeline</span>
+            </Link>
+          </li>
+          <li
+            className={` sidebar-li ${
+              isOpen ? "!justify-start" : "!justify-center"
+            }`}
+          >
+            <Link
+              className={` sidebar-li ${
+                isOpen ? "!justify-start pl-2" : "!justify-center"
+              }  ${
+                pathname === "/Calendar" ? "!text-white-500 !bg-green-400" : ""
               }`}
               href="/Calendar"
             >
@@ -152,9 +181,7 @@ function Sidebar() {
             <Link
               className={` sidebar-li ${
                 isOpen ? "!justify-start pl-2" : "!justify-center"
-              } ${
-                pathname === "/Help" ? "!text-white-500 !bg-green-400" : ""
-              }`}
+              } ${pathname === "/Help" ? "!text-white-500 !bg-green-400" : ""}`}
               href="/Help"
             >
               <BsBook />
@@ -169,9 +196,7 @@ function Sidebar() {
             <Link
               className={` sidebar-li ${
                 isOpen ? "!justify-start pl-2" : "!justify-center"
-              } ${
-                pathname === "/FAQ" ? "!text-white-500 !bg-green-400" : ""
-              }`}
+              } ${pathname === "/FAQ" ? "!text-white-500 !bg-green-400" : ""}`}
               href="/FAQ"
             >
               <BiHelpCircle />

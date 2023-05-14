@@ -12,7 +12,7 @@ export default function CustomToolbarGrid() {
 
   useEffect(() => {
     if(!AllClients.length>0) dispatch(fetchAllClients())
-  }, [])
+  })
 
   function SendBtn(){
     return <button className="group cursor-pointer flex justify-center items-center rounded-md hover:shadow-icon transition-all duration-150 hover:bg-white-300 px-6 py-2 "><BsSendCheck className="group-hover:animate-bounce"/></button>

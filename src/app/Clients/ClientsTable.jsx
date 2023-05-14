@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { fetchAllClients, detailHandler } from "../Redux/Features/clientSlice";
 import { BsSearch } from "react-icons/bs";
 import Avatar from "@mui/material/Avatar";
+import TableLoadingSkeleton from "../components/TableLoadingSkeleton";
 
 export default function ClientsTable() {
   const dispatch = useAppDispatch();
@@ -12,7 +13,7 @@ export default function ClientsTable() {
 
   useEffect(() => {
     if (!AllClients.length > 0) dispatch(fetchAllClients());
-  }, []);
+  });
 
   const handleCellClick = (params) => {
     params.field === "details" ? dispatch(detailHandler(params.id)) : null;
@@ -27,18 +28,29 @@ export default function ClientsTable() {
   }
 
   const columns = [
-    { field: "id", headerName: "ID", width: 50, align: "left", flex: 1,editable:false, },
+    {
+      field: "id",
+      headerName: "ID",
+      width: 50,
+      align: "left",
+      flex: 1,
+      editable: false,
+    },
     {
       field: "avatar",
       headerName: "Avatar",
       width: 50,
       align: "center",
       flex: 1,
-      editable:false,
+      editable: false,
       renderCell: (params) => {
         return (
           <div>
-            <Avatar src={params.row.avatar} alt="User Avatar" className="border-[1px] border-gray-600 p-[1px]"/>
+            <Avatar
+              src={params.row.avatar}
+              alt="User Avatar"
+              className="border-[1px] border-gray-600 p-[1px]"
+            />
           </div>
         );
       },
@@ -77,7 +89,7 @@ export default function ClientsTable() {
       headerAlign: "center",
       align: "center",
       flex: 2,
-      editable:false,
+      editable: false,
       renderCell: () => SendBtn(),
     },
   ];
@@ -102,31 +114,37 @@ export default function ClientsTable() {
 
   return (
     <div className="relative w-full h-full flex   justify-center items-center p-0">
-      <DataGrid
-        sx={{
-          width: "100%",
-          height: "100%",
-          color: "#10564F",
-          [`& .${gridClasses.cell}:focus, & .${gridClasses.cell}:focus-within`]: {
-            outline: "none"
-          },
-          [`& .${gridClasses.columnHeader}:focus, & .${gridClasses.columnHeader}:focus-within`]: {
-            outline: "none"
-          }
-        }}
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: { paginationModel: { pageSize: 15 } },
-        }}
-        getRowHeight={() => "auto"}
-        columnHeaderHeight={30}
-        loading={isLoading}
-        columnBuffer={0}
-        pageSizeOptions={[15, 20, 30]}
-        rowSelection={false}
-        onCellClick={handleCellClick}
-      />
+      {isLoading ? (
+        <TableLoadingSkeleton />
+      ) : (
+        <DataGrid
+          sx={{
+            width: "100%",
+            height: "100%",
+            color: "#10564F",
+            [`& .${gridClasses.cell}:focus, & .${gridClasses.cell}:focus-within`]:
+              {
+                outline: "none",
+              },
+            [`& .${gridClasses.columnHeader}:focus, & .${gridClasses.columnHeader}:focus-within`]:
+              {
+                outline: "none",
+              },
+          }}
+          rows={rows}
+          columns={columns}
+          initialState={{
+            pagination: { paginationModel: { pageSize: 15 } },
+          }}
+          getRowHeight={() => "auto"}
+          columnHeaderHeight={30}
+          loading={isLoading}
+          columnBuffer={0}
+          pageSizeOptions={[15, 20, 30]}
+          rowSelection={false}
+          onCellClick={handleCellClick}
+        />
+      )}
     </div>
   );
 }

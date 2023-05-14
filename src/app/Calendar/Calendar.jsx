@@ -28,14 +28,13 @@ function Calendar() {
     console.log(selected)
   }
 
-  function handleChange() {}
 
   return (
-    <div className=" flex gap-3">
+    <div className="flex justify-center items-start flex-col md:flex-row gap-3 w-full ">
       <Modal selected={selected} open={open} setOpen={setOpen} eventType={eventType}/>
-      <div className="flex-1  flex flex-col justify-start items-center p-1 bg-white-300 shadow-md border-[1px] border-gray-400">
+      <div className="flex-1 w-full flex flex-col justify-start items-center p-1 bg-white-300 shadow-md border-[1px] border-gray-400 ">
         <h1 className="text-base font-semibold ">Events</h1>
-        <List >
+        <List className="max-h-[70vh] w-full overflow-x-scroll pr-1">
           {currentEvents.map((event) => (
             <ListItem 
             className="shadow-md"
@@ -64,7 +63,7 @@ function Calendar() {
           ))}
         </List>
       </div>
-      <div className="flex-[9] bg-white-300 shadow-md border-[1px] border-gray-400">
+      <div className=" relative flex-1 md:flex-[9]  bg-white-300 shadow-md border-[1px] border-gray-400 w-full">
         <FullCalendar
           height="80vh"
           plugins={[

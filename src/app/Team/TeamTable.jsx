@@ -12,7 +12,7 @@ export default function TeamTable() {
 
   useEffect(() => {
     if (!AllTeamMembers.length > 0) dispatch(fetchAllTeamMembers());
-  }, []);
+  });
 
   const handleCellClick = (params) => {
     params.field === "details" ? dispatch(memberDetailHandler(params.id)) : null;

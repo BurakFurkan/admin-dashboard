@@ -19,15 +19,15 @@ module.exports = {
         900: "#0c0c10",
       },
       yellow: {
-        100: "#fbfaf7",
-        200: "#f7f5f0",
-        300: "#f4efe8",
-        400: "#f0eae1",
-        500: "#ece5d9",
-        600: "#bdb7ae",
-        700: "#8e8982",
-        800: "#5e5c57",
-        900: "#2f2e2b",
+        100: "#fef4d9",
+        200: "#fde9b3",
+        300: "#fddd8c",
+        400: "#fcd266",
+        500: "#fbc740",
+        600: "#c99f33",
+        700: "#977726",
+        800: "#64501a",
+        900: "#32280d",
       },
       white: {
         100: "#fdfefd",
@@ -101,6 +101,7 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          "greenBg":"url('/greenBg.svg')"
       },
       gridTemplateRows: {
         // Complex site-specific row configuration
