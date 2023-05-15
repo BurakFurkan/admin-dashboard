@@ -25,7 +25,6 @@ function Calendar() {
     setEventType("deleteEvent")
     setSelected(selected);
     setOpen(true);
-    console.log(selected)
   }
 
 

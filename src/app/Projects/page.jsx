@@ -10,7 +10,6 @@ import { AnimationWrapper } from "../components/AnimationWrapper";
 function Page() {
   const dispatch = useAppDispatch();
   const { AllTeamMembers } = useAppSelector((state) => state.team);
-  console.log(AllTeamMembers);
 
   useEffect(() => {
     if (!AllTeamMembers.length > 0) dispatch(fetchAllTeamMembers());

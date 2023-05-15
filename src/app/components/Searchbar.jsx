@@ -1,5 +1,5 @@
 "use client";
-import React,{useState,useRef} from "react";
+import React,{useState} from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { detailHandler } from "../Redux/Features/clientSlice";

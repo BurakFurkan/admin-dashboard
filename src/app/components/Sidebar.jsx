@@ -103,7 +103,7 @@ function Sidebar() {
               <span className="text-xs">Dashboard</span>
             </Link>
           </li>
-          <span className="text-xs border-b-[1px] border-t-[1px] border-green-500 w-full text-center">
+          <span className="text-xs border-b-[1px] border-t-[1px] border-green-500 bg-green-400 text-gray-400 w-full text-center">
             Management
           </span>
           {managePaths.map((path) => (
@@ -126,7 +126,7 @@ function Sidebar() {
               </Link>
             </li>
           ))}
-          <span className="text-xs border-b-[1px] border-t-[1px] border-green-500 w-full text-center">
+          <span className="text-xs border-b-[1px] border-t-[1px] border-green-400 bg-green-400 text-gray-400 w-full text-center ">
             Tools
           </span>
           {toolsPaths.map((path) => (

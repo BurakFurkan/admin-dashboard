@@ -2,7 +2,7 @@
 import {DataGrid, gridClasses} from "@mui/x-data-grid";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
-import { fetchAllClients,addClient} from "../Redux/Features/clientSlice";
+import { fetchAllClients} from "../Redux/Features/clientSlice";
 import {BsSendCheck} from "react-icons/bs";
 import Avatar from '@mui/material/Avatar';
 
