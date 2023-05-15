@@ -19,6 +19,38 @@ function Sidebar() {
   }
 
   const pathname = usePathname();
+  const managePaths = [
+    {
+      name: "Clients",
+      icon: <SlPeople />,
+    },
+    {
+      name: "Team",
+      icon: <AiOutlineUsergroupAdd />,
+    },
+    {
+      name: "Projects",
+      icon: <BsClipboardCheck />,
+    },
+  ];
+  const toolsPaths = [
+    {
+      name: "Timeline",
+      icon: <RxRulerHorizontal />,
+    },
+    {
+      name: "Calendar",
+      icon: <TfiCalendar />,
+    },
+    {
+      name: "Help",
+      icon: <BsBook />,
+    },
+    {
+      name: "FAQ",
+      icon: <BiHelpCircle />,
+    },
+  ];
 
   return (
     <div
@@ -26,14 +58,14 @@ function Sidebar() {
         isOpen ? "w-[180px] " : "w-[120px]"
       }`}
     >
-      <div className="flex flex-col  items-center gap-4 fixed top-0 h-full bottom-0  bg-white-300 border-r-2 border-gray-600 transition-[width] duration-300">
-        <div className=" flex justify-start gap-4 relative w-full pl-4 transition-[width] duration-300">
+      <div className="flex flex-col justify-start items-center gap-4 fixed top-0 h-full bottom-0  bg-white-300 border-r-2 border-gray-600 transition-[width] duration-300">
+        <div className="flex justify-center items-center relative w-full transition-[width] duration-300 py-1 ">
           {isOpen && (
-            <p className="text-black-500 -ml-[5px] text-xs">Administration</p>
+            <p className="text-black-500 pl-1 text-[10px] md:text-sm">Administration</p>
           )}
           <button
             onClick={clickHandler}
-            className="absolute text-black-400 top-[1px] right-0"
+            className=" text-black-400 "
           >
             {isOpen ? (
               <TbLayoutSidebarLeftCollapse />
@@ -43,7 +75,6 @@ function Sidebar() {
           </button>
         </div>
         <div className="flex flex-col justify-center items-center gap-1 relative">
-          
           <Image
             className="rounded-[50%]"
             src={"/UserImage.jpg"}
@@ -55,154 +86,69 @@ function Sidebar() {
           {isOpen && <p className="text-green-500">Manager</p>}
         </div>
         <ul
-          className={`h-3/6 font-medium flex flex-col justify-between items-center text-base ${
-            isOpen ? "" : "items-center"
-          }`}
+          className={`h-3/6 w-full flex flex-col justify-start items-start gap-1`}
         >
           <li
-            className={` sidebar-li  ${
-              isOpen ? "!justify-stretch " : "!justify-center"
-            } `}
+            className={`sidebar-li ${
+              pathname === "/" ? "!text-white-500 !bg-green-400" : ""
+            }`}
           >
             <Link
-              className={` sidebar-li !text-sm ${
-                isOpen ? "!justify-stretch p-3" : "!justify-center"
-              } ${pathname === "/" ? "!text-white-500 !bg-green-400" : ""}`}
               href="/"
+              className={`p-2 gap-1 flex ${
+                isOpen ? "flex-row" : "flex-col"
+              } justify-start items-center`}
             >
               <AiOutlineHome />
-              <span className={`${isOpen ? "block" : "hidden"}`}>
-                Dashboard
-              </span>
+              <span className="text-xs">Dashboard</span>
             </Link>
           </li>
-          <p
-            className={`flex justify-center items-center self-start gap-1 text-black-400 ${
-              isOpen ? "text-sm" : "text-xs self-center"
-            }`}
-          >
-            <span>Management</span>
-          </p>
-          <li
-            className={` sidebar-li relative ${
-              isOpen ? "!justify-start" : "!justify-center"
-            } `}
-          >
-            <Link
-              className={` sidebar-li ${
-                isOpen ? "!justify-start pl-2 " : "!justify-center"
-              } ${
-                pathname === "/Clients" ? "!text-white-500 !bg-green-400" : ""
+          <span className="text-xs border-b-[1px] border-t-[1px] border-green-500 w-full text-center">
+            Management
+          </span>
+          {managePaths.map((path) => (
+            <li
+              key={path.name}
+              className={`sidebar-li ${
+                pathname === `/${path.name}`
+                  ? "!text-white-500 !bg-green-400"
+                  : ""
               }`}
-              href="/Clients"
             >
-              <SlPeople />
-              <span className={`${isOpen ? "block" : "hidden"}`}>Clients</span>
-            </Link>
-          </li>
-          <li
-            className={` sidebar-li ${
-              isOpen ? "!justify-start" : "!justify-center"
-            } `}
-          >
-            <Link
-              className={` sidebar-li ${
-                isOpen ? "!justify-start pl-2" : "!justify-center"
-              } ${pathname === "/Team" ? "!text-white-500 !bg-green-400" : ""}`}
-              href="/Team"
-            >
-              <AiOutlineUsergroupAdd />
-              <span className={`${isOpen ? "block" : "hidden"}`}>My Team</span>
-            </Link>
-          </li>
-          <li
-            className={` sidebar-li relative ${
-              isOpen ? "!justify-start" : "!justify-center"
-            } `}
-          >
-            <Link
-              className={` sidebar-li ${
-                isOpen ? "!justify-start pl-2 " : "!justify-center"
-              } ${
-                pathname === "/Projects" ? "!text-white-500 !bg-green-400" : ""
+              <Link
+                href={`/${path.name}`}
+                className={`p-2 gap-1 flex ${
+                  isOpen ? "flex-row" : "flex-col"
+                } justify-start items-center`}
+              >
+                {path.icon}
+                <span className="text-xs">{path.name}</span>
+              </Link>
+            </li>
+          ))}
+          <span className="text-xs border-b-[1px] border-t-[1px] border-green-500 w-full text-center">
+            Tools
+          </span>
+          {toolsPaths.map((path) => (
+            <li
+              key={path.name}
+              className={`sidebar-li ${
+                pathname === `/${path.name}`
+                  ? "!text-white-500 !bg-green-400"
+                  : ""
               }`}
-              href="/Projects"
             >
-              <BsClipboardCheck />
-              <span className={`${isOpen ? "block" : "hidden"}`}>Projects</span>
-            </Link>
-          </li>
-          <p
-            className={`flex justify-center items-center self-start gap-1 text-black-400 ${
-              isOpen ? "text-sm" : "text-xs self-center"
-            }`}
-          >
-            <span>Tools</span>
-          </p>
-          <li
-            className={` sidebar-li ${
-              isOpen ? "!justify-start" : "!justify-center"
-            }`}
-          >
-            <Link
-              className={` sidebar-li ${
-                isOpen ? "!justify-start pl-2" : "!justify-center"
-              }  ${
-                pathname === "/Timeline" ? "!text-white-500 !bg-green-400" : ""
-              }`}
-              href="/Timeline"
-            >
-              <RxRulerHorizontal />
-              <span className={`${isOpen ? "block" : "hidden"}`}>Timeline</span>
-            </Link>
-          </li>
-          <li
-            className={` sidebar-li ${
-              isOpen ? "!justify-start" : "!justify-center"
-            }`}
-          >
-            <Link
-              className={` sidebar-li ${
-                isOpen ? "!justify-start pl-2" : "!justify-center"
-              }  ${
-                pathname === "/Calendar" ? "!text-white-500 !bg-green-400" : ""
-              }`}
-              href="/Calendar"
-            >
-              <TfiCalendar />
-              <span className={`${isOpen ? "block" : "hidden"}`}>Calendar</span>
-            </Link>
-          </li>
-          <li
-            className={` sidebar-li ${
-              isOpen ? "!justify-start" : "!justify-center"
-            } `}
-          >
-            <Link
-              className={` sidebar-li ${
-                isOpen ? "!justify-start pl-2" : "!justify-center"
-              } ${pathname === "/Help" ? "!text-white-500 !bg-green-400" : ""}`}
-              href="/Help"
-            >
-              <BsBook />
-              <span className={`${isOpen ? "block" : "hidden"}`}>Help</span>
-            </Link>
-          </li>
-          <li
-            className={` sidebar-li ${
-              isOpen ? "!justify-start" : "!justify-center"
-            } `}
-          >
-            <Link
-              className={` sidebar-li ${
-                isOpen ? "!justify-start pl-2" : "!justify-center"
-              } ${pathname === "/FAQ" ? "!text-white-500 !bg-green-400" : ""}`}
-              href="/FAQ"
-            >
-              <BiHelpCircle />
-              <span className={`${isOpen ? "block" : "hidden"}`}>FAQ</span>
-            </Link>
-          </li>
+              <Link
+                href={`/${path.name}`}
+                className={`p-2 gap-1 flex ${
+                  isOpen ? "flex-row" : "flex-col"
+                } justify-start items-center`}
+              >
+                {path.icon}
+                <span className="text-xs">{path.name}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

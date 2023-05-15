@@ -46,7 +46,7 @@ function Timeline() {
 
   function calculateStep() {
     let step;
-    const todayStep = () => Math.ceil((today + 1) / 5);
+    const todayStep = () => Math.ceil((today + 1) / 6);
 
     for (let today = 1; today < 30; today++) {
       step = todayStep(today);
@@ -56,6 +56,7 @@ function Timeline() {
 
   const stepNumber = calculateStep();
   const steps = [
+    "Start",
     "Analysis",
     "Design",
     "Implementation Or Coding",

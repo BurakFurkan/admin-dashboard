@@ -31,7 +31,7 @@ body{
 
 
 .sidebar-li {
-    @apply cursor-pointer text-base text-green-500 hover:bg-green-300 hover:text-white-500 rounded-r-full  h-full w-full  flex justify-stretch items-center gap-1 ;
+    @apply   text-green-500 hover:bg-green-300 hover:text-white-500 rounded-r-full w-full;
  }
 
  .fc-toolbar{

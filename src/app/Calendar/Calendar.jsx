@@ -88,8 +88,15 @@ function Calendar() {
           initialEvents={[
             {
               id: "1111",
-              title: "Running",
+              title: "Meeting",
               date: "2023-05-05",
+              backgroundColor: "#10564f",
+              borderColor: "#10564f",
+            },
+            {
+              id: "1112",
+              title: "Lunch with clients",
+              date: "2023-05-08",
               backgroundColor: "#10564f",
               borderColor: "#10564f",
             },

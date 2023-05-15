@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import { AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlinePlayCircle } from "react-icons/ai";
 import { RiTestTubeFill } from "react-icons/ri";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
 import { TbDeviceAnalytics } from "react-icons/tb";
@@ -138,11 +138,12 @@ function ColorlibStepIcon(props) {
   const { active, completed, className } = props;
 
   const icons = {
-    1: <TbDeviceAnalytics />,
-    2: <BsPalette />,
-    3: <BsCodeSlash />,
-    4: <RiTestTubeFill />,
-    5: <HiOutlineRocketLaunch />,
+    1: <AiOutlinePlayCircle />,
+    2: <TbDeviceAnalytics />,
+    3: <BsPalette />,
+    4: <BsCodeSlash />,
+    5: <RiTestTubeFill />,
+    6: <HiOutlineRocketLaunch />,
   };
 
   return (
@@ -174,6 +175,7 @@ ColorlibStepIcon.propTypes = {
 };
 
 const steps = [
+  "Start",
   "Analysis",
   "Design",
   "Implementation Or Coding",
@@ -181,6 +183,7 @@ const steps = [
   "Deployment",
 ];
 const days = [
+  "0",
   "0-6 Days",
   "6-12 Days",
   "12-18 Days",
@@ -189,9 +192,6 @@ const days = [
 ];
 
 export default function CustomizedSteppers({ stepNumber }) {
-  
-    
-
   return (
     <Stack sx={{ width: "100%" }} spacing={4}>
       <Stepper
@@ -205,7 +205,11 @@ export default function CustomizedSteppers({ stepNumber }) {
           </Step>
         ))}
       </Stepper>
-      <Stepper alternativeLabel activeStep={stepNumber} connector={<QontoConnector />}>
+      <Stepper
+        alternativeLabel
+        activeStep={stepNumber}
+        connector={<QontoConnector />}
+      >
         {days.map((label) => (
           <Step key={label}>
             <StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>
