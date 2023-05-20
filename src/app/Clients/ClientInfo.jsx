@@ -55,7 +55,7 @@ function ClientInfo() {
             content2={selectedClient.gender}
           />
           <ClientInfoField
-            title1="Company"
+            title1="Phone"
             content1={selectedClient.phone}
             title2="Company"
             content2={selectedClient.company.name}
