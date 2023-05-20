@@ -82,8 +82,8 @@ function Sidebar() {
             width={75}
             height={75}
           />
-          {isOpen && <p className="text-black-500">Jack Philips</p>}
-          {isOpen && <p className="text-green-500">Manager</p>}
+          {isOpen && <p className="text-black-500 text-sm">Jack Philips</p>}
+          {isOpen && <p className="text-green-500 text-xs">Manager</p>}
         </div>
         <ul
           className={`h-3/6 w-full flex flex-col justify-start items-start gap-1`}

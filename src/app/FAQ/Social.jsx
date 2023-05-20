@@ -8,13 +8,13 @@ import Link from "next/link";
 
 function Social() {
   return (
-    <div className="bg-white-300 shadow-md rounded-md p-4 mt-4 gap-4 flex flex-col justify-center items-center group transition-all ease-in-out">
+    <div className="bg-white-300 w-[250px] md:w-fit shadow-md rounded-md p-4 mt-4 gap-4 flex flex-col justify-center items-center group transition-all ease-in-out">
       <h1 className="font-semibold">You can check my other projects...</h1>
       <div className="flex justify-start items-center gap-4  bg-gradient-to-r from-green-500 to-white-300 pt-1 pr-1 rounded-md group-hover:bg-gradient-to-l group-hover:text-white-300"> 
         <Image alt="Burak Furkan TENEKECİ" src={"/noglitch.png"} width={75} height={75}/>
         <h2 className="font-medium">Burak Furkan TENEKECİ</h2>
       </div>
-      <div className="flex justify-evenly items-center w-full">
+      <div className="flex justify-evenly items-center w-full gap-1">
         <div className="flex flex-col justify-center items-center gap-1">
           <h2>Portfolio</h2>
           <Link

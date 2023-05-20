@@ -66,7 +66,7 @@ function Timeline() {
 
   return (
     <AnimationWrapper>
-      <div className="shadow-md rounded-md h-[80vh] w-[280px] md:w-full overflow-x-scroll p-4 bg-white-300 flex flex-col justify-center items-center ">
+      <div className="shadow-md rounded-md h-[80vh] w-[250px] md:w-full overflow-x-scroll p-4 bg-white-300 flex flex-col justify-center items-center ">
         <h1 className="text-center text-lg font-semibold mb-6">
           Monthly Developement Schedule
         </h1>

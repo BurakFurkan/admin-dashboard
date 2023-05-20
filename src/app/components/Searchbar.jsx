@@ -18,7 +18,10 @@ function Searchbar() {
     const searchWord = event.target.value
     setSearchWord(event.target.value)
     const filteredArray = AllClients.filter((client)=>{
-       return ((client.firstName).toLowerCase().includes(searchWord) || (client.lastName).toLowerCase().includes(searchWord)) 
+      const fullName = `${client.firstName}${client.lastName}`.toLowerCase();
+      const reversedFullName = `${client.lastName}${client.firstName}`.toLowerCase();
+      const trimmedSearchValue = searchWord.replace(/\s+/g, '').toLowerCase();
+      return fullName.includes(trimmedSearchValue) || reversedFullName.includes(trimmedSearchValue); 
     })
     setFilteredClients(filteredArray)
     

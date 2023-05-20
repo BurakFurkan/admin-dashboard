@@ -9,7 +9,7 @@ function ClientInfo() {
   );
 
   return (
-    <div className="text-green-500 pt-2 bg-white-300 flex-1 rounded-md border-2 border-dashed w-[260px] md:w-full min-h-[80vh] border-gray-300 flex flex-col justify-start items-start">
+    <div className="text-green-500 pt-2 bg-white-300 flex-1 rounded-md border-2 border-dashed w-[250px] md:w-full min-h-[80vh] border-gray-300 flex flex-col justify-start items-start">
       {!Object.keys(selectedClient || {})?.length > 0 && (
         <div className="flex-1 self-center flex items-center justify-center w-full h-full text-center font-semibold">Please select a user from list to see the details.</div>
       )}

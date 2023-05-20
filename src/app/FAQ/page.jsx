@@ -11,8 +11,8 @@ import { AnimationWrapper } from "../components/AnimationWrapper";
 export default function Faq() {
   return (
     <AnimationWrapper>
-      <div className="flex flex-col justify-center items-start  text-green-500">
-        <Accordion sx={{ color: "#10564f", backgroundColor: "#fafbf9" }}>
+      <div className="flex flex-col justify-center items-start w-[250px] md:w-full  text-green-500">
+        <Accordion sx={{  color: "#10564f", backgroundColor: "#fafbf9" }}>
           <AccordionSummary
             sx={{
               "& .MuiTypography-root": {
